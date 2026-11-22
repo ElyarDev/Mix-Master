@@ -6,7 +6,7 @@ import { Link, useRouteError } from 'react-router-dom';
 function Error() {
     const error = useRouteError();
 
-    if (error.status) {
+    if (error.status === 404) {
         return (
             <Wrapper>
                 <div>
@@ -18,6 +18,7 @@ function Error() {
             </Wrapper>
         )
     }
+
     return (
         <Wrapper>
             <div>
