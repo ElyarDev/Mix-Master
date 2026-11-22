@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function About() {
     return (
-        <h1>About</h1>
+        <div>
+            <h1>About</h1>
+            <Link to="/">Home page</Link>
+        </div>
     )
 }
 
