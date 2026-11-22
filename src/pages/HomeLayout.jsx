@@ -6,9 +6,9 @@ function HomeLayout() {
     return (
         <>
             <Navbar />
-            {/* <Link to='/about'>About page</Link> */}
-            <Outlet />
-            <footer>FOOTER</footer>
+            <section className='page'>
+                <Outlet />
+            </section>
         </>
     )
 }
