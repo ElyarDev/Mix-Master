@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 function Navbar() {
     return (
-        <nav>
+        <Wrapper>
             <div className="nav-center">
                 <span className='logo'>MixMaster</span>
                 <div className="nav-links">
@@ -18,8 +19,12 @@ function Navbar() {
                     </NavLink>
                 </div>
             </div>
-        </nav >
+        </Wrapper >
     )
 }
+
+const Wrapper = styled.nav`
+    background: red;
+`
 
 export default Navbar
