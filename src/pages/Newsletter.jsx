@@ -10,13 +10,19 @@ export const action = async ({ request }) => {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
 
-    // SUBMIT THE FORM
-    const response = await axios.post(newsletterUrl, data);
+    // ERROR HANDLING
+    try {
+        // SUBMIT THE FORM
+        const response = await axios.post(newsletterUrl, data);
 
-    console.log(response);
-    toast.success(response.data.msg);
+        toast.success(response.data.msg);
 
-    return redirect('/');
+        return redirect('/');
+    } catch (error) {
+        console.log(error);
+        toast.error(error?.response?.data?.msg);
+        return error;
+    }
 }
 
 function Newsletter() {
@@ -30,7 +36,7 @@ function Newsletter() {
                 <label htmlFor="name" className='form-label'>
                     name
                 </label>
-                <input type="text" className='form-input' name='name' id='name' defaultValue='elyar' />
+                <input type="text" className='form-input' name='name' id='name' required />
             </div>
 
             {/* {lastName} */}
@@ -38,7 +44,7 @@ function Newsletter() {
                 <label htmlFor="lastName" className='form-label'>
                     last name
                 </label>
-                <input type="text" className='form-input' name='lastName' id='lastName' defaultValue='atahri' />
+                <input type="text" className='form-input' name='lastName' id='lastName' required />
             </div>
 
             {/* {email} */}
@@ -46,7 +52,7 @@ function Newsletter() {
                 <label htmlFor="email" className='form-label'>
                     email
                 </label>
-                <input type="email" className='form-input' name='email' id='email' defaultValue='test@test.com' />
+                <input type="email" className='form-input' name='email' id='email' required />
             </div>
 
             <button type='submit' className='btn btn-block' style={{ marginTop: '0.5rem', }}>
