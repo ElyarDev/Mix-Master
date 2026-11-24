@@ -27,7 +27,7 @@ export const action = async ({ request }) => {
 
 function Newsletter() {
     const navigation = useNavigation;
-    const isSubmitting = navigation.state === 'submitting'
+    const isSubmitting = navigation.state === 'submitting';
     return (
         <Form action="#" className='form' method='POST'>
             <h4 style={{ textAlign: 'center', marginBottom: '2rem' }}>

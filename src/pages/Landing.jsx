@@ -3,6 +3,7 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom';
 
 import CocktailList from '../components/CocktailList';
+import SearchForm from '../components/SearchForm';
 
 const cocktailSearchUrl =
     'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
@@ -19,6 +20,7 @@ function Landing() {
 
     return (
         <>
+            <SearchForm />
             <CocktailList drinks={drinks} />
         </>
     )
